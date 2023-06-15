@@ -7,37 +7,37 @@ sources:
     tables:
       - name: acceptance
         identifier: acceptance
-        description: TBD
+        description: Payment data from transactions made by globepay
         freshness:
           warn_after: {count: 12, period: hour}
           error_after: {count: 24, period: hour}
         loaded_at_field: date_time
         columns:
             - name: external_ref
-              description: TBD
+              description: Transaction ID
               tests:
                 - not_null
                 - unique
             - name: status
-              description: TBD
+              description: Status of receipt of transaction information
             - name: source
-              description: TBD
+              description: Source of transaction data
             - name: ref
               description: TBD
               tests:
                 - not_null
                 - unique
             - name: date_time
-              description: The timestamp of the transaction
+              description: The timestamp of the transaction in the format YYYY-MM-DDTHH:MM:SS.FFFFZ
               tests:
                 - not_null
             - name: state
-              description: The binary state of the transaction. For example, Accepted or Declined
+              description: The state of the transaction. For example, Accepted or Declined
               tests:
                 - accepted_values:
                     values: ['DECLINED', 'ACCEPTED']
             - name: cvv_provided
-              description: TBD
+              description: information if the card's CVV was provided.For example, True or False
             - name: amount
               description: The amount that has been charged from the card
             - name: country
@@ -52,14 +52,14 @@ sources:
         description: TBD
         columns:
             - name: external_ref
-              description: TBD
+              description: Transaction ID
               tests:
                 - not_null
                 - unique
             - name: status
-              description: TBD
+              description: Status of receipt of transaction information
             - name: source
-              description: TBD
+              description: Source of transaction`s chargeback data
             - name: chargeback
               description: If the transaction has been chargedback. For example, True or False
               tests:
