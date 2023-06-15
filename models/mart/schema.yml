@@ -2,45 +2,45 @@ version: 2
 
 models:
   - name: payments
-    description: TBD
+    description: Mart (gold) model for payment data
     columns:
       - name: external_ref
-        description: TBD
+        description: Transaction ID
       - name: ref
         description: TBD
       - name: transaction_timestamp
-        description: TBD
+        description: The timestamp of the transaction in the format YYYY-MM-DDTHH:MM:SS.FFFFZ
       - name: transaction_date
-        description: TBD
+        description: The date of the transaction in the format YYYY-MM-DDT00:00:00.000Z
       - name: state
-        description: TBD
+        description: The state of the transaction. For example, Accepted or Declined
       - name: is_cvv_provided
-        description: TBD
+        description: Binary information if the card's CVV was provided.For example, True or False
       - name: amount_usd
-        description: TBD
+        description: The amount that has been charged from the card in USD currency
       - name: country
-        description: TBD
+        description: The two-character ISO country code of the card
       - name: currency
-        description: TBD
+        description: The three-character ISO currency code
       - name: amount_currency
-        description: TBD
+        description: The amount that has been charged from the card in the local currency
       - name: is_chargeback
-        description: TBD 
+        description: Binary information if the transaction was chargedback.For example, True or False         
       - name: acceptance_rate_day
-        description: TBD
+        description: Daily acceptance rate of transactions
       - name: acceptance_rate_cum
-        description: TBD
+        description: Cumulative acceptance rate of transactions, sorted by earliest to latest date
       - name: rate_aud
-        description: TBD  
+        description: The exchange rate for AUD currency  
       - name: rate_cad
-        description: TBD  
+        description: The exchange rate for CAD currency    
       - name: rate_eur
-        description: TBD  
+        description: The exchange rate for EUR currency    
       - name: rate_gbp
-        description: TBD  
+        description: The exchange rate for GBP currency    
       - name: rate_mxn
-        description: TBD
+        description: The exchange rate for MXN currency  
       - name: rate_sgd
-        description: TBD
+        description: The exchange rate for SGD currency  
       - name: rate_usd
-        description: TBD                          
+        description: The exchange rate for USD currency                         
