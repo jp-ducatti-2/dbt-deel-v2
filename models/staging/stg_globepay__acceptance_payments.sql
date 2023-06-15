@@ -1,12 +1,10 @@
--- stg_payments__acceptance.sql
-
 {{
     config(
         materialized = 'view'
     )
 }}
 
-with source_model AS (
+WITH source_model AS (
 
 {{ flatten_json(
     model_name= source('payments','acceptance'),
@@ -20,11 +18,10 @@ treatment AS (
         -- ids
         external_ref,
         ref,
-        status,
-        source,
-        date_time,
+        date_time AS transaction_timestamp,
+        date_trunc('day', date_time) as transaction_date,
         state,
-        cvv_provided,
+        cvv_provided AS is_cvv_provided,
         amount AS amount_usd,
         country,
         currency,
@@ -50,9 +47,4 @@ treatment AS (
     FROM source_model
 )
 
-SELECT 
-currency,
-avg(amount_currency) 
-FROM treatment
-group by 1
-order by avg(amount_currency) desc
+SELECT * FROM treatment

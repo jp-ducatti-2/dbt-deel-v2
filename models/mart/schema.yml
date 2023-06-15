@@ -1,30 +1,19 @@
 version: 2
 
 models:
-  - name: stg_globepay__acceptance_payments
+  - name: payments
     description: TBD
     columns:
       - name: external_ref
         description: TBD
-        tests:
-              - not_null
-              - unique
       - name: ref
         description: TBD
-        tests:
-              - not_null
-              - unique
       - name: transaction_timestamp
         description: TBD
-        tests:
-              - not_null
       - name: transaction_date
         description: TBD
       - name: state
         description: TBD
-        tests:
-              - accepted_values:
-                  values: ['DECLINED', 'ACCEPTED']
       - name: is_cvv_provided
         description: TBD
       - name: amount_usd
@@ -34,6 +23,12 @@ models:
       - name: currency
         description: TBD
       - name: amount_currency
+        description: TBD
+      - name: is_chargeback
+        description: TBD 
+      - name: acceptance_rate_day
+        description: TBD
+      - name: acceptance_rate_cum
         description: TBD
       - name: rate_aud
         description: TBD  
@@ -49,19 +44,3 @@ models:
         description: TBD
       - name: rate_usd
         description: TBD                          
-  
-  - name: stg_globepay__chargeback_payments
-    description: TBD
-    columns:
-      - name: external_ref
-        description: TBD
-        tests:
-              - not_null
-              - unique
-      - name: is_source_globalpay
-        description: TBD
-      - name: is_chargeback
-        description: TBD
-        tests:
-              - accepted_values:
-                  values: ['FALSE', 'TRUE']
