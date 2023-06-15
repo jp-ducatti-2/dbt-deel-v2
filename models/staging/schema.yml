@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: stg_payments__acceptance
+    description: TBD
+    columns:
+      - name: external_ref
+        description: TBD
+        tests:
+              - not_null
+              - unique
+      - name: status
+        description: TBD
+      - name: source
+        description: TBD
+      - name: ref
+        description: TBD
+        tests:
+              - not_null
+              - unique
+      - name: date_time
+        description: TBD
+        tests:
+              - not_null
+      - name: state
+        description: TBD
+        tests:
+              - accepted_values:
+                  values: ['DECLINED', 'ACCEPTED']
+      - name: cvv_provided
+        description: TBD
+      - name: amount
+        description: TBD
+      - name: country
+        description: TBD
+      - name: currency
+        description: TBD
+      - name: rates
+        description: TBD
+  
+  - name: stg_payments__chargeback
+    description: TBD
+    columns:
+      - name: external_ref
+        description: TBD
+        tests:
+              - not_null
+              - unique
+      - name: status
+        description: TBD
+      - name: source
+        description: TBD
+      - name: chargeback
+        description: TBD
+        tests:
+              - accepted_values:
+                  values: ['FALSE', 'TRUE']
